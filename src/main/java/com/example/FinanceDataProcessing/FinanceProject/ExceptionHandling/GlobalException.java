@@ -13,6 +13,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalException {
 
+   @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Map<String,String>> RuntimeException(RuntimeException ex)
     {
         return new ResponseEntity<>(Map.of("message",ex.getMessage()), HttpStatusCode.valueOf(404));
